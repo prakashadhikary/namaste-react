@@ -40,7 +40,7 @@ const Body = () => {
 
     const fetchRestaurants = async () => {
         const result = await fetch(
-            "https://foodmandu.com/webapi/api/Vendor/GetVendors1?Cuisine=&DeliveryZoneId=1&IsFavorite=false&IsRecent=false&Keyword=&LocationLat=0&LocationLng=0&PageNo=1&PageSize=40&SortBy=4&VendorName=&VendorTags=%7B%7D&VendorTagsCSV=&search_by=restaurant"
+            "https://corsproxy.io/?https://foodmandu.com/webapi/api/Vendor/GetVendors1?Cuisine=&DeliveryZoneId=1&IsFavorite=false&IsRecent=false&Keyword=&LocationLat=0&LocationLng=0&PageNo=1&PageSize=40&SortBy=4&VendorName=&VendorTags=%7B%7D&VendorTagsCSV=&search_by=restaurant"
         );
 
         const restList = await result.json();
@@ -53,7 +53,7 @@ const Body = () => {
         setSearchTerm(term);
     };
 
-    return listOfRestaurant.length === 0 ? (
+    return !listOfRestaurant.length ? (
         <Shimmer />
     ) : (
         <div className="body">

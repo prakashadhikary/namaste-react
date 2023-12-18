@@ -1,13 +1,21 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { ROUTE } from "../utils/constants";
 
 // NavItem Component
 const NavItem = () => {
     const [btnValue, setBtnValue] = useState("Login");
     return (
         <ul>
-            <li>Home</li>
-            <li>About Us</li>
-            <li>Contact Us</li>
+            <li>
+                <Link to={ROUTE.HOME}>Home</Link>
+            </li>
+            <li>
+                <Link to={ROUTE.ABOUT}>About Us</Link>
+            </li>
+            <li>
+                <Link to={ROUTE.CONTACT}>Contact Us</Link>
+            </li>
             <li>Cart</li>
             <button
                 className="btn primary-btn"

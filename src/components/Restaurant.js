@@ -1,15 +1,22 @@
+import { Link } from "react-router-dom";
+import { ROUTE } from "../utils/constants";
+
 // Restaurant Card Component
 const Restaurant = (props) => {
     const restaurant = props?.restaurantData;
-    const { Name, Address1, CuisineTags, VendorRating } = restaurant;
+    const { Id, Name, Address1, CuisineTags, VendorRating } = restaurant;
     return (
         <div className="restaurant">
             <div className="restaurant-image-wrapper">
-                <img alt={Name} className="restaurant-image" src={restaurant.VendorListingWebImageName} />
+                <Link to={ROUTE.RESTAURANT + "/" + restaurant.Id}>
+                    <img alt={Name} className="restaurant-image" src={restaurant.VendorListingWebImageName} />{" "}
+                </Link>
             </div>
             <div className="restaurant-detail">
                 <div className="restaurant-name">
-                    <h2>{Name}</h2>
+                    <h2>
+                        <Link to={ROUTE.RESTAURANT + "/" + restaurant.Id}>{Name} </Link>
+                    </h2>
                 </div>
                 <h4>{Address1}</h4>
                 <h4>{VendorRating} Stars</h4>
